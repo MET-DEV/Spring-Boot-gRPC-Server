@@ -1,0 +1,23 @@
+syntax="proto3";
+
+option java_multiple_files=true;
+option java_package = "com.metsoft.grpcproject";
+
+service ProductService{
+  rpc GetProducts(ProductGetRequest) returns (ProductGetResponse){};
+}
+
+message ProductGetRequest{
+  int32 id = 1;
+}
+message Category{
+  int64 id=1;
+  string name=2;
+}
+message ProductGetResponse{
+  int32 id = 1;
+  string name=2;
+  string description=3;
+  double price=4;
+  Category category=5;
+}
